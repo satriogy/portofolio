@@ -1,21 +1,25 @@
+
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Satrio - IT Infrastructure Support</title>
-    <meta name="description" content="Portfolio pribadi Satrio - IT Infrastructure Support dengan pengalaman lebih dari 5 tahun dalam mengelola sistem infrastruktur teknologi yang andal dan efisien.">
-    <meta name="keywords" content="portfolio, IT infrastructure, network administrator, Satrio, server management, cloud computing, system administrator">
+    <title>Satrio - IT Infrastructure Support Portfolio</title>
+    <meta name="description" content="Professional IT Infrastructure Support portfolio showcasing 5+ years of experience in network administration, server management, and cloud computing.">
+    <meta name="keywords" content="IT Infrastructure, Network Administration, Server Management, Cloud Computing, AWS, Azure, VMware, Security, Firewall">
     <meta name="author" content="Satrio">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Custom Styles -->
     <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
             --primary-color: #2563eb;
             --secondary-color: #1e40af;
@@ -25,12 +29,6 @@
             --dark-color: #0f172a;
             --gray-color: #64748b;
             --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
 
         body {
@@ -111,6 +109,136 @@
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover {
+            background-color: rgba(37, 99, 235, 0.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .mobile-menu-overlay.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-menu-bg {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+
+        .mobile-menu {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 320px;
+            max-width: 85vw;
+            background-color: white;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-menu-overlay.visible .mobile-menu {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mobile-menu-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-logo span {
+            color: var(--secondary-color);
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-close:hover {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+        }
+
+        .mobile-menu-content {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .mobile-menu-item {
+            width: 100%;
+            text-align: left;
+            padding: 1rem 1.5rem;
+            border: none;
+            background: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-color);
+            cursor: pointer;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .mobile-menu-item:hover {
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-item i {
+            margin-left: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .mobile-menu-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--gray-color);
         }
 
         /* Sections */
@@ -256,6 +384,7 @@
             border-radius: 5px;
             position: relative;
             transition: width 1.5s ease;
+            width: 0%;
         }
 
         .skill-progress::after {
@@ -417,6 +546,7 @@
             color: var(--primary-color);
             font-size: 1.2rem;
             transition: var(--transition);
+            text-decoration: none;
         }
 
         .social-link:hover {
@@ -476,6 +606,7 @@
             font-weight: 600;
             font-size: 1rem;
             transition: var(--transition);
+            width: 100%;
         }
 
         .submit-btn:hover {
@@ -614,31 +745,11 @@
             }
             
             nav ul {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                height: 100vh;
-                background-color: white;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: var(--transition);
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-                z-index: 999;
-            }
-            
-            nav ul.active {
-                right: 0;
-            }
-            
-            nav ul li {
-                margin: 1.5rem 0;
+                display: none;
             }
             
             .mobile-menu-btn {
                 display: block;
-                z-index: 1000;
             }
             
             #home {
@@ -685,43 +796,73 @@
     <header>
         <div class="logo">Port<span>folio</span></div>
         <nav>
-            <ul id="nav-menu">
+            <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">Tentang</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Kontak</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="mobile-menu-btn" id="mobile-menu-btn">
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
         </nav>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay hidden" id="mobile-menu-overlay">
+        <div class="mobile-menu-bg"></div>
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-logo">Port<span>folio</span></div>
+                <button class="mobile-menu-close" id="mobile-menu-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="mobile-menu-content">
+                <button class="mobile-menu-item" data-section="home">
+                    Home <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="mobile-menu-item" data-section="about">
+                    About <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="mobile-menu-item" data-section="portfolio">
+                    Portfolio <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="mobile-menu-item" data-section="contact">
+                    Contact <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="mobile-menu-footer">
+                IT Infrastructure Support
+            </div>
+        </div>
+    </div>
 
     <!-- Home Section -->
     <section id="home">
         <div class="home-content fade-in">
-            <h1>Hai, Saya <span>Satrio</span></h1>
-            <p>Saya seorang IT Infrastructure Support dengan pengalaman lebih dari 5 tahun. Saya ahli dalam mengelola sistem infrastruktur teknologi yang andal dan efisien untuk mendukung operasional bisnis.</p>
-            <a href="#portfolio" class="cta-button">Lihat Portfolio Saya</a>
+            <h1>Hi, I'm <span>Satrio</span></h1>
+            <p>I'm an IT Infrastructure Support with over 5 years of experience. I love creating robust and efficient IT systems that power modern businesses.</p>
+            <a href="#portfolio" class="cta-button">View My Portfolio</a>
         </div>
         <div class="home-image fade-in">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&h=600&q=80" alt="Profil Satrio">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&h=600&q=80" alt="Profile">
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
         <div class="section-title">
-            <h2>Tentang Saya</h2>
+            <h2>About Me</h2>
         </div>
         <div class="about-content">
             <div class="about-text fade-in">
-                <h3>Siapa Saya?</h3>
-                <p>Saya seorang profesional IT Infrastructure Support dengan passion di bidang sistem dan jaringan. Saya telah bekerja pada berbagai proyek infrastruktur mulai dari setup server hingga implementasi cloud computing.</p>
-                <p>Di waktu luang, saya menikmati eksperimen dengan teknologi server, membaca dokumentasi teknis, dan berkontribusi di forum IT komunitas.</p>
+                <h3>Who Am I?</h3>
+                <p>I'm a technology professional with a passion for IT infrastructure systems and networking. I've worked on various infrastructure projects from server setup to cloud computing implementation.</p>
+                <p>In my free time, I enjoy experimenting with server technology, reading technical documentation, and contributing to IT community forums.</p>
             </div>
             <div class="about-skills fade-in">
-                <h3>Keterampilan Saya</h3>
+                <h3>My Skills</h3>
                 <div class="skill-item">
                     <div class="skill-info">
                         <span>Network Administration</span>
@@ -774,7 +915,7 @@
     <!-- Portfolio Section -->
     <section id="portfolio">
         <div class="section-title">
-            <h2>Portfolio Saya</h2>
+            <h2>My Portfolio</h2>
         </div>
         <div class="portfolio-grid">
             <div class="portfolio-item">
@@ -783,7 +924,7 @@
                 </div>
                 <div class="portfolio-info">
                     <h3>Enterprise Network Setup</h3>
-                    <p>Implementasi jaringan enterprise dengan routing, switching, dan keamanan untuk perusahaan multinasional.</p>
+                    <p>Complete enterprise network infrastructure with Cisco routers, Mikrotik switches, and firewall configuration for 500+ users.</p>
                     <div class="portfolio-tags">
                         <span class="tag">Cisco</span>
                         <span class="tag">Mikrotik</span>
@@ -793,11 +934,11 @@
             </div>
             <div class="portfolio-item">
                 <div class="portfolio-img">
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&h=200&q=80" alt="Project 2">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&h=200&q=80" alt="Project 2">
                 </div>
                 <div class="portfolio-info">
                     <h3>Cloud Migration Project</h3>
-                    <p>Migrasi infrastruktur on-premise ke cloud AWS dengan strategi hybrid cloud dan disaster recovery.</p>
+                    <p>Successfully migrated on-premise infrastructure to AWS and Azure, implementing DevOps practices and CI/CD pipelines.</p>
                     <div class="portfolio-tags">
                         <span class="tag">AWS</span>
                         <span class="tag">Azure</span>
@@ -811,7 +952,7 @@
                 </div>
                 <div class="portfolio-info">
                     <h3>Server Virtualization</h3>
-                    <p>Implementasi server virtualization dengan VMware vSphere untuk mengoptimalkan resource dan mengurangi cost.</p>
+                    <p>Implemented VMware vSphere and Hyper-V virtualization solutions, reducing hardware costs by 60% while improving performance.</p>
                     <div class="portfolio-tags">
                         <span class="tag">VMware</span>
                         <span class="tag">Hyper-V</span>
@@ -821,11 +962,11 @@
             </div>
             <div class="portfolio-item">
                 <div class="portfolio-img">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&h=200&q=80" alt="Project 4">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&h=200&q=80" alt="Project 4">
                 </div>
                 <div class="portfolio-info">
                     <h3>Data Center Infrastructure</h3>
-                    <p>Design dan implementasi data center dengan cooling system, power management, dan monitoring 24/7.</p>
+                    <p>Designed and deployed complete data center infrastructure including UPS systems, cooling, and 24/7 monitoring solutions.</p>
                     <div class="portfolio-tags">
                         <span class="tag">Data Center</span>
                         <span class="tag">UPS</span>
@@ -839,17 +980,17 @@
     <!-- Contact Section -->
     <section id="contact">
         <div class="section-title">
-            <h2>Kontak Saya</h2>
+            <h2>Contact Me</h2>
         </div>
         <div class="contact-container">
             <div class="contact-info fade-in">
-                <h3>Informasi Kontak</h3>
+                <h3>Contact Information</h3>
                 <div class="contact-detail">
                     <div class="contact-icon">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div class="contact-text">
-                        <h4>Lokasi</h4>
+                        <h4>Location</h4>
                         <p>Tangerang, Indonesia</p>
                     </div>
                 </div>
@@ -867,34 +1008,34 @@
                         <i class="fas fa-phone"></i>
                     </div>
                     <div class="contact-text">
-                        <h4>Telepon</h4>
+                        <h4>Phone</h4>
                         <p>+6289666970888</p>
                     </div>
                 </div>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/satriogy/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/satriogy" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/satriogy/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/satriogy" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             <div class="contact-form fade-in">
-                <h3>Kirim Pesan</h3>
+                <h3>Send Message</h3>
                 <form id="contactForm">
                     <div class="form-group">
-                        <label for="name">Nama Lengkap</label>
-                        <input type="text" id="name" name="name" placeholder="Masukkan nama Anda">
-                        <div class="error-message" id="name-error">Nama harus diisi</div>
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name">
+                        <div class="error-message" id="name-error">Name is required</div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Masukkan email Anda">
-                        <div class="error-message" id="email-error">Email tidak valid</div>
+                        <input type="email" id="email" name="email" placeholder="Enter your email">
+                        <div class="error-message" id="email-error">Invalid email</div>
                     </div>
                     <div class="form-group">
-                        <label for="message">Pesan</label>
-                        <textarea id="message" name="message" placeholder="Tulis pesan Anda di sini"></textarea>
-                        <div class="error-message" id="message-error">Pesan harus diisi</div>
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Write your message here"></textarea>
+                        <div class="error-message" id="message-error">Message is required</div>
                     </div>
-                    <button type="submit" class="submit-btn">Kirim Pesan</button>
+                    <button type="submit" class="submit-btn">Send Message</button>
                 </form>
             </div>
         </div>
@@ -906,12 +1047,12 @@
             <div class="footer-logo">Port<span>folio</span></div>
             <div class="footer-links">
                 <a href="#home">Home</a>
-                <a href="#about">Tentang</a>
+                <a href="#about">About</a>
                 <a href="#portfolio">Portfolio</a>
-                <a href="#contact">Kontak</a>
+                <a href="#contact">Contact</a>
             </div>
             <div class="copyright">
-                &copy; 2025 Portfolio Pribadi. Hak Cipta Dilindungi.
+                &copy; 2025 Personal Portfolio. All Rights Reserved.
             </div>
         </div>
     </footer>
@@ -924,26 +1065,55 @@
     <script>
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const navMenu = document.getElementById('nav-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
 
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
+        function openMobileMenu() {
+            mobileMenuOverlay.classList.remove('hidden');
+            mobileMenuOverlay.classList.add('visible');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenuOverlay.classList.remove('visible');
+            mobileMenuOverlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileMenuOverlay || e.target.classList.contains('mobile-menu-bg')) {
+                closeMobileMenu();
+            }
+        });
+
+        mobileMenuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const section = item.getAttribute('data-section');
+                const target = document.getElementById(section);
+                if (target) {
+                    closeMobileMenu();
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Escape key to close menu
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenuOverlay.classList.contains('visible')) {
+                closeMobileMenu();
+            }
         });
 
         // Smooth Scrolling for Navigation Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
-                // Close mobile menu if open
-                if (navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                }
-                
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     window.scrollTo({
@@ -1006,11 +1176,17 @@
         const animateSkillBars = () => {
             skillBars.forEach(bar => {
                 const barTop = bar.getBoundingClientRect().top;
-                if (barTop < window.innerHeight - 100 && !bar.style.width) {
-                    bar.style.width = bar.getAttribute('data-width') + '%';
+                if (barTop < window.innerHeight - 100 && bar.style.width === '0%') {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width + '%';
                 }
             });
         };
+
+        // Initialize skill bars
+        skillBars.forEach(bar => {
+            bar.style.width = '0%';
+        });
 
         window.addEventListener('load', animateSkillBars);
         window.addEventListener('scroll', animateSkillBars);
@@ -1046,11 +1222,11 @@
             
             // Validate email
             if (!emailInput.value.trim()) {
-                emailError.textContent = 'Email harus diisi';
+                emailError.textContent = 'Email is required';
                 emailError.style.display = 'block';
                 isValid = false;
             } else if (!validateEmail(emailInput.value.trim())) {
-                emailError.textContent = 'Email tidak valid';
+                emailError.textContent = 'Invalid email format';
                 emailError.style.display = 'block';
                 isValid = false;
             }
@@ -1063,9 +1239,22 @@
             
             // If form is valid, show success message
             if (isValid) {
-                alert('Pesan Anda telah berhasil dikirim! Terima kasih telah menghubungi saya.');
+                alert('Your message has been successfully sent! Thank you for contacting me.');
                 contactForm.reset();
             }
+        });
+
+        // Clear error messages on input
+        nameInput.addEventListener('input', () => {
+            nameError.style.display = 'none';
+        });
+
+        emailInput.addEventListener('input', () => {
+            emailError.style.display = 'none';
+        });
+
+        messageInput.addEventListener('input', () => {
+            messageError.style.display = 'none';
         });
     </script>
 </body>
